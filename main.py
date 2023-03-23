@@ -7,6 +7,7 @@ def menu():
           '2. Decode\n'
           '3. Quit')
 def encode(password):
+    global final
     encode=[]
     list=[int(x) for x in password]
     for num in list:
@@ -18,11 +19,18 @@ def encode(password):
         final+=num
     return final
 
-def decode(code):
+def decoder(final):
+    global result
+    result = ''
+    final = [int(i) - 3 for i in final]
+    for j in final:
+        result += str(j)
+    return result
     pass
 
 def main():
     menu()
+
 
 
 if __name__ =='__main__':
@@ -34,7 +42,8 @@ if __name__ =='__main__':
             password=str(input('Please enter your password to encode:'))
             code=encode(password)
             print('Your password has been encoded and stored!')
-        elif option==2:
-            print(f'The encoded password is {code}, and the original password is {decode(code)}.')
+        if option == 2:
+            decoder(final)
+            print(f'The encoded password is {final}, and the original password is {password}.')
         elif option==3:
             break
