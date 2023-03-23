@@ -18,10 +18,11 @@ def encode(password):
         final+=num
     return final
 
+def decode(code):
+    pass
 
 def main():
     menu()
-
 
 
 if __name__ =='__main__':
@@ -33,5 +34,7 @@ if __name__ =='__main__':
             password=str(input('Please enter your password to encode:'))
             code=encode(password)
             print('Your password has been encoded and stored!')
+        elif option==2:
+            print(f'The encoded password is {code}, and the original password is {decode(code)}.')
         elif option==3:
             break
